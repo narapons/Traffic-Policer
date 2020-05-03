@@ -17,22 +17,22 @@ namespace Traffic_Policer.Extensions
             switch (e)
             {
                 case DrugsLevels.NEGATIVE:
-                    return "~g~NEGATIVE";
+                    return "~g~陰性";
                 case DrugsLevels.POSITIVE:
-                    return "~r~POSITIVE";
+                    return "~r~陽性";
             }
-            return "UNDETECTABLE";
+            return "検出不能";
         }
         public static string ToColouredString(this EVehicleDetailsStatus e)
         {
             switch (e)
             {
                 case EVehicleDetailsStatus.Valid:
-                    return "~g~Valid";
+                    return "~g~有効";
                 case EVehicleDetailsStatus.Expired:
-                    return "~o~Expired";
+                    return "~o~期限切れ";
                 case EVehicleDetailsStatus.None:
-                    return "~r~None";
+                    return "~r~なし";
             }
             return "UNDETECTABLE";
         }
