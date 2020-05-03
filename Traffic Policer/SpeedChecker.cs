@@ -136,7 +136,7 @@ namespace Traffic_Policer
                                             {
                                                 VehiclesBlipPlayedFor.Add(veh);
                                                 FlagBlipPlayer.Play();
-                                                Game.DisplayNotification("~s~Model: ~b~" + TargetModel + "~n~~s~Speed: " + (SpeedColour == Color.Red ? "~r~" : "") + TargetSpeed + " " + SpeedUnit);
+                                                Game.DisplayNotification("~s~車種: ~b~" + TargetModel + "~n~~s~速度: " + (SpeedColour == Color.Red ? "~r~" : "") + TargetSpeed + " " + SpeedUnit);
                                             }
                                         }
                                     }
@@ -500,7 +500,7 @@ namespace Traffic_Policer
 
                                 if (ShowVehicleNotification)
                                 {
-                                    Game.DisplayNotification("Plate: ~b~" + TargetLicencePlate + "~n~~s~Model: ~b~" + TargetModel + "~n~~s~Speed: " + (SpeedColour == Color.Red ? "~r~" : "") + TargetSpeed + " " + SpeedUnit + "~n~~s~Flags: ~r~" + TargetFlag);
+                                    Game.DisplayNotification("ナンバー: ~b~" + TargetLicencePlate + "~n~~s~車種: ~b~" + TargetModel + "~n~~s~速度: " + (SpeedColour == Color.Red ? "~r~" : "") + TargetSpeed + " " + SpeedUnit + "~n~~s~Flags: ~r~" + TargetFlag);
                                 }
 
 
@@ -569,7 +569,7 @@ namespace Traffic_Policer
 
         private static void DisplayMaxSpeedMessage()
         {
-            Game.DisplayHelp("Max Speed: ~r~" + SpeedToColourAt.ToString() + SpeedUnit + "~n~~s~Configure with ~b~" + TrafficPolicerHandler.kc.ConvertToString(MaxSpeedUpKey) + "~s~ and ~b~" + TrafficPolicerHandler.kc.ConvertToString(MaxSpeedDownKey), 3000);
+            Game.DisplayHelp("制限速度: ~r~" + SpeedToColourAt.ToString() + SpeedUnit + "~n~~s~Configure with ~b~" + TrafficPolicerHandler.kc.ConvertToString(MaxSpeedUpKey) + "~s~ and ~b~" + TrafficPolicerHandler.kc.ConvertToString(MaxSpeedDownKey), 3000);
         }
 
         private static void DisplayAverageSpeedCheckInstructions()

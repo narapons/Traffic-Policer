@@ -352,7 +352,7 @@ namespace Traffic_Policer
             Game.FrameRender += Process;
             _menuPool = new MenuPool();
 
-            roadManagementMenu = new UIMenu("Road Management", "~b~Select the sign to place");
+            roadManagementMenu = new UIMenu("道路管理", "~b~配置する標識を選択");
             _menuPool.Add(roadManagementMenu);
 
             
@@ -381,10 +381,10 @@ namespace Traffic_Policer
 
             };
             roadManagementMenu.AddItem(conesList = new UIMenuListItem("Cones", "", availableCones));
-            removeLastDroppedSignItem = new UIMenuItem("Remove Last Sign");
+            removeLastDroppedSignItem = new UIMenuItem("最後に設置した標識を削除");
             roadManagementMenu.AddItem(removeLastDroppedSignItem);
-            roadManagementMenu.AddItem(RemoveNearestSignItem = new UIMenuItem("Remove Nearest Sign"));
-            removeAllSignsItem = new UIMenuItem("Remove All Signs");
+            roadManagementMenu.AddItem(RemoveNearestSignItem = new UIMenuItem("近くの標識を削除"));
+            removeAllSignsItem = new UIMenuItem("すべての標識を削除");
             roadManagementMenu.AddItem(removeAllSignsItem);
             barriersList.OnListChanged += OnListChanged;
             conesList.OnListChanged += OnListChanged;
@@ -394,10 +394,10 @@ namespace Traffic_Policer
             roadManagementMenu.MouseControlsEnabled = false;
             roadManagementMenu.AllowCameraMovement = true;
 
-            PlaceSignMenu = new UIMenu("Road Management", "~b~Placement options");
+            PlaceSignMenu = new UIMenu("道路管理", "~b~配置オプション");
             PlaceSignMenu.AddItem(PlaceSignItem = new UIMenuItem("Place Sign"));
 
-            PlaceSignMenu.AddItem(UpdateSignPositionItem = new UIMenuCheckboxItem("Update sign position", true, "If checked, contantly updates the sign's position offset to your character's current position."));
+            PlaceSignMenu.AddItem(UpdateSignPositionItem = new UIMenuCheckboxItem("標識位置を更新", true, "オンにすると、標識が現在の位置に常に更新されます。"));
             List<string> availableSpawnDirections = new List<string>
             {
                 "1",
@@ -405,19 +405,19 @@ namespace Traffic_Policer
                 "3",
                 "4"
             };
-            PlaceSignMenu.AddItem(SpawnDirectionListItem = new UIMenuListItem("Direction", "", availableSpawnDirections));
+            PlaceSignMenu.AddItem(SpawnDirectionListItem = new UIMenuListItem("方向", "", availableSpawnDirections));
 
             List<string> availableSpawnMultipliers = new List<string>
             {
                 "2","3","4","5","6","7","8","9","10"
             };
-            PlaceSignMenu.AddItem(SpawnMultiplierListItem = new UIMenuListItem("Distance", "", availableSpawnMultipliers));
+            PlaceSignMenu.AddItem(SpawnMultiplierListItem = new UIMenuListItem("距離", "", availableSpawnMultipliers));
             List<string> AvailableHeadingModifiers = new List<string>
             {
                 "0", "45", "90", "135", "180", "225", "270", "315",
             };
-            PlaceSignMenu.AddItem(HeadingItem = new UIMenuListItem("Rotation in degrees", "", AvailableHeadingModifiers));
-            PlaceSignMenu.AddItem(EnablePreviewItem = new UIMenuCheckboxItem("Enable Preview", true));
+            PlaceSignMenu.AddItem(HeadingItem = new UIMenuListItem("度単位の回転", "", AvailableHeadingModifiers));
+            PlaceSignMenu.AddItem(EnablePreviewItem = new UIMenuCheckboxItem("プレビューを有効", true));
             PlaceSignMenu.RefreshIndex();
 
             PlaceSignMenu.OnItemSelect += OnItemSelect;
@@ -444,7 +444,7 @@ namespace Traffic_Policer
                 {
                     SignTypeToPlace = SignTypes.Barrier;
                     sender.Visible = false;
-                    PlaceSignItem.Text = "Place " + barriersList.Collection[barriersList.Index].Value.ToString();
+                    PlaceSignItem.Text = "設置 " + barriersList.Collection[barriersList.Index].Value.ToString();
                     PlaceSignMenu.RefreshIndex();
                     PlaceSignMenu.Visible = true;
                     PositionToPlaceAt = Game.LocalPlayer.Character.Position;
@@ -455,7 +455,7 @@ namespace Traffic_Policer
                 {
                     SignTypeToPlace = SignTypes.Cone;
                     sender.Visible = false;
-                    PlaceSignItem.Text = "Place " + conesList.Collection[conesList.Index].Value.ToString();
+                    PlaceSignItem.Text = "設置 " + conesList.Collection[conesList.Index].Value.ToString();
                     PlaceSignMenu.RefreshIndex();
                     PlaceSignMenu.Visible = true;
                     PositionToPlaceAt = Game.LocalPlayer.Character.Position;

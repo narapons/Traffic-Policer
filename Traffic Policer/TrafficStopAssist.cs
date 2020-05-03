@@ -87,7 +87,7 @@ namespace Traffic_Policer
                     while (true)
                     {
                         GameFiber.Wait(70);
-                        Game.DisplaySubtitle("Set your desired pullover location. Hold ~b~Enter ~s~when done.", 100);
+                        Game.DisplaySubtitle("希望の場所を設定します。 完了したらEnterを押したままにします。", 100);
                         CheckPointPosition = Game.LocalPlayer.Character.GetOffsetPosition(new Vector3((float)xOffset + 0.5f, (float)(yOffset + 8), (float)(-1 + zOffset)));
                         if (!TrafficPolicerHandler.isSomeoneFollowing)
                         {
@@ -95,7 +95,7 @@ namespace Traffic_Policer
                         }
                         if (!Functions.IsPlayerPerformingPullover())
                         {
-                            Game.DisplayNotification("You cancelled the ~b~Traffic Stop.");
+                            Game.DisplayNotification("Traffic Stopがキャンセルされました。");
                             break;
                         }
                         if (!Game.LocalPlayer.Character.IsInVehicle(playerCar, false))
